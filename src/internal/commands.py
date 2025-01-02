@@ -1,10 +1,10 @@
 import sys
 
-from internal.config import ConfigFile
-from internal.docker import docker_compose_up
-from internal.services import services_pretty_print, Service, resolve_dependencies_str
-from internal.settings import WORKDIR, CURRENT_CFG
-from internal.workdir import WorkingDirectory
+from src.internal.config import ConfigFile
+from src.internal.docker import docker_compose_up
+from src.internal.services import services_pretty_print, Service, resolve_dependencies_str
+from src.internal.settings import WORKDIR, CURRENT_CFG
+from src.internal.workdir import WorkingDirectory
 
 # Util functions:
 def abort_if_cfg_file_doesnt_exist():

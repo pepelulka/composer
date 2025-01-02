@@ -3,7 +3,7 @@
 """
 from pathlib import Path
 
-from internal.services import Service
+from src.internal.services import Service
 
 class WorkingDirectory:
     def __init__(self, path: Path):

@@ -1,6 +1,6 @@
 import argparse
 
-from internal.commands import (
+from src.internal.commands import (
     command_up,
     command_add,
     command_list,

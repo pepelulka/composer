@@ -7,7 +7,7 @@ import yaml
 from pathlib import Path
 from typing import List
 
-from internal.services import Service, topological_sort
+from src.internal.services import Service, topological_sort
 
 """
 Структура конфиг файла:
