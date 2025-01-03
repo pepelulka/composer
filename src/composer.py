@@ -1,11 +1,18 @@
 import argparse
 
-from src.internal.commands import (
-    command_up,
-    command_add,
-    command_list,
-    command_init
-)
+from src.internal.commands import Command
+
+ACTION_LIST = [
+    'init',
+    'list',
+    'add',
+    'up',
+    'down',
+    'build',
+    'up-all',
+    'down-all',
+    'build-all'
+]
 
 def parse_args():
     parser = argparse.ArgumentParser(
@@ -15,14 +22,7 @@ def parse_args():
     )
     parser.add_argument(
         'action',
-        choices=[
-            'init',
-            'list',
-            'add',
-            'up',
-            'up-all',
-
-        ]
+        choices=ACTION_LIST
     )
     parser.add_argument("args", nargs="*")
     parser.add_argument("-d", "--debug", action="store_true")
@@ -35,13 +35,21 @@ def parse_args():
 def main():
     args = parse_args()
     if args.action == 'init':
-        command_init()
+        Command.init()
     elif args.action == 'list':
-        command_list()
+        Command.list()
     elif args.action == 'add':
-        command_add()
+        Command.add()
     elif args.action == 'up':
-        command_up(args.args, args.debug, args.detach)
+        Command.up(args.args, args.debug, args.detach)
+    elif args.action == 'build':
+        Command.build(args.args)
+    elif args.action == 'up-all':
+        Command.up_all(args.debug, args.detach)
+    elif args.action == 'down-all':
+        Command.down_all(args.force, args.volume)
+    elif args.action == 'build-all':
+        Command.build_all()
 
 if __name__ == "__main__":
     main()
